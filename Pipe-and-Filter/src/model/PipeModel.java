@@ -54,7 +54,7 @@ public class PipeModel {
         String saida = "";
 
         for (Pipe pipe : pipes) {
-            saida += "[" + pipe.getSigla() + "]";
+            saida += "[" + pipe.getSigla() + "] ";
         }
 
         return saida;
