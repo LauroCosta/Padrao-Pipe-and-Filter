@@ -25,7 +25,6 @@ public class PipeModel {
                 entrada = saida;
             }
         }
-        this.notifyALL();
         return entrada;
     }
 
@@ -55,7 +54,7 @@ public class PipeModel {
         String saida = "";
 
         for (Pipe pipe : pipes) {
-            saida += "[" + pipe.getNome() + "]";
+            saida += "[" + pipe.getSigla() + "]";
         }
 
         return saida;
@@ -86,7 +85,7 @@ public class PipeModel {
         }
     }
 
-    private void notifyALL() {
+    public void notifyALL() {
         for (Observer observer : observers) {
             observer.update();
         }

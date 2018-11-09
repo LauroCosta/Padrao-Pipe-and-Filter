@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class PipeSemConsoante implements Pipe {
 
-    private String nome = "RCO";
+    private final String SIGLA = "RCO";
     
     @Override
     public String filtrar(String entrada) {
@@ -18,8 +18,7 @@ public class PipeSemConsoante implements Pipe {
     }
     
     @Override
-    public String getNome() {
-        return this.nome;
+    public String getSigla() {
+        return this.SIGLA;
     }
-    
 }

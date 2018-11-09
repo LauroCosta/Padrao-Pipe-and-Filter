@@ -65,6 +65,7 @@ public class PipeView extends javax.swing.JFrame {
         setBackground(new java.awt.Color(51, 51, 51));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setName("Piper and Filter"); // NOI18N
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Entrada"));
 

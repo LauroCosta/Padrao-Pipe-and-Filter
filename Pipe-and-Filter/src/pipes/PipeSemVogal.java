@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class PipeSemVogal implements Pipe {
 
-    private String nome = "RVO";
+    private final String SIGLA = "RVO";
     
     @Override
     public String filtrar(String entrada) {
@@ -19,8 +19,7 @@ public class PipeSemVogal implements Pipe {
     }
        
     @Override
-    public String getNome() {
-        return this.nome;
-    }
-    
+    public String getSigla() {
+        return this.SIGLA;
+    } 
 }

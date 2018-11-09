@@ -2,7 +2,7 @@ package pipes;
 
 public class PipeLetrasMaiusculas implements Pipe {
 
-    private String nome = "LMA";
+    private final String SIGLA = "LMA";
     
     @Override
     public String filtrar(String entrada) {
@@ -10,7 +10,7 @@ public class PipeLetrasMaiusculas implements Pipe {
     }
       
     @Override
-    public String getNome() {
-        return this.nome;
+    public String getSigla() {
+        return this.SIGLA;
     }   
 }

@@ -18,8 +18,7 @@ public class PipeController implements Observer {
 
     private PipeModel model;
     private PipeView view;
-    private String saida;
-
+   
     public PipeController(PipeView view, PipeModel model) {
         this.setModel(model);
         this.setView(view);
@@ -30,7 +29,7 @@ public class PipeController implements Observer {
         return model;
     }
 
-    public void setModel(PipeModel model) {
+    private void setModel(PipeModel model) {
         if (model != null) 
             this.model = model;
     }
@@ -39,36 +38,21 @@ public class PipeController implements Observer {
         return view;
     }
 
-    public void setView(PipeView view) {
+    private void setView(PipeView view) {
         if (view != null) 
             this.view = view;
     }
 
-    public String getSaida() {
-        return saida;
-    }
-
-    public void setSaida(String saida) {
-        if (saida != null) 
-            this.saida = saida;
-    }
-
-    private void filtrarString() {   
-        try {
-            String entrada = this.getView().getCampoEntrada().getText();
-            this.setSaida(this.getModel().run(entrada));
-            new Robot().keyPress(10);
-        } catch (AWTException ex) {}
+    private String filtrarString(String entrada) {   
+        return this.getModel().run(entrada);
     }
     
     public void eventoTeclado(KeyEvent evt) {
-        this.filtrarString();
+        this.getModel().notifyALL();
     }
 
     public void eventoClick(ActionEvent evt){
-
-        this.filtrarString();
-        
+    
         switch (evt.getActionCommand()) {
 
             case "duplica":
@@ -97,7 +81,15 @@ public class PipeController implements Observer {
     
     @Override
     public void update() {
-        this.getView().getListaPipes().setText(this.getModel().listaPipes());
-        this.getView().getTxSaida().setText(this.getSaida());       
+        try {
+            this.getView().getListaPipes().setText(this.getModel().listaPipes());
+            String teste = this.filtrarString(this.getView().getCampoEntrada().getText());
+            new Robot().keyPress(10);       
+            this.getView().getTxSaida().setText(teste);
+   
+        } catch (AWTException ex) {
+            this.getView().getTxSaida().setText("erro na simulação do enter");
+            System.exit(0);
+        }
     }
 }

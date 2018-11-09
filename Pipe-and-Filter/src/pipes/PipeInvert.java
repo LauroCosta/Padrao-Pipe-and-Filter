@@ -2,7 +2,7 @@ package pipes;
 
 public class PipeInvert implements Pipe {
 
-    private String nome = "INV";
+    private final String NOME = "INV";
     
     @Override
     public String filtrar(String entrada) {
@@ -25,11 +25,8 @@ public class PipeInvert implements Pipe {
         return saida;
     }
     
-    
     @Override
-    public String getNome() {
-        return this.nome;
-    }
-    
-    
+    public String getSigla() {
+        return this.NOME;
+    }    
 }
